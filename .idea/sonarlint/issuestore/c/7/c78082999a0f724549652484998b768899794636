@@ -1,0 +1,6 @@
+
+p	java:S116"VRename this field "FOLDER_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úó’çýÿÿÿÿ
+A
+java:S1075+"&Remove this hard-coded path-delimiter.(ãÛç”ùÿÿÿÿ
+c
+java:S4042L"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(Ù‘¦

@@ -1,0 +1,5 @@
+
+A
+java:S1948"&Make "user" transient or serializable.(ùÛ«‘øÿÿÿÿ
+
+java:S6204"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹

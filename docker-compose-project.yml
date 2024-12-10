@@ -1,0 +1,97 @@
+version: "3.8"
+
+services:
+  eureka-server:
+    build:
+      context: ./eureka-server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - microservices-network
+
+  gateway:
+    build:
+      context: ./gateway
+    container_name: gateway
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka-server
+    networks:
+      - microservices-network
+
+  config-server:
+    build:
+      context: ./config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      - eureka-server
+    networks:
+      - microservices-network
+
+  auth-service:
+    build:
+      context: ./auth-service
+    container_name: auth-service
+    ports:
+      - "8085:8085"
+    depends_on:
+      - eureka-server
+      - config-server
+    networks:
+      - microservices-network
+
+  user-service:
+    build:
+      context: ./user-service
+    container_name: user-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - eureka-server
+      - config-server
+    networks:
+      - microservices-network
+
+  notification-service:
+    build:
+      context: ./notification-service
+    container_name: notification-service
+    ports:
+      - "8090:8090"
+    depends_on:
+      - eureka-server
+      - config-server
+    networks:
+      - microservices-network
+
+  core-service:
+    build:
+      context: ./core-service
+    container_name: core-service
+    ports:
+      - "8089:8089"
+    depends_on:
+      - eureka-server
+      - config-server
+    networks:
+      - microservices-network
+
+  file-storage:
+    build:
+      context: ./file-storage
+    container_name: file-storage
+    ports:
+      - "8099:8099"
+    depends_on:
+      - eureka-server
+      - config-server
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge

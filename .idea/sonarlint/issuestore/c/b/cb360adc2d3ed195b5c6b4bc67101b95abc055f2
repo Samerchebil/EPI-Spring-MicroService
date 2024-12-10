@@ -1,0 +1,5 @@
+
+„
+java:S5361I"HReplace this call to "replaceAll()" by a call to the "replace()" method.(èòê®J$5beb3be9-5c05-4bc0-9646-1bbd9d028bbc
+¶
+java:S6204U"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹J$93923b88-820c-4e83-ab73-a9f64edba580
